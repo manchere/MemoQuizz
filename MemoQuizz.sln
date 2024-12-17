@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35312.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MemoQuizz", "MemoQuizz.vcxproj", "{A7BD80A2-0743-4FD5-981C-2CC0C3FEC6F5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A7BD80A2-0743-4FD5-981C-2CC0C3FEC6F5}.Debug|x64.ActiveCfg = Debug|x64
+		{A7BD80A2-0743-4FD5-981C-2CC0C3FEC6F5}.Debug|x64.Build.0 = Debug|x64
+		{A7BD80A2-0743-4FD5-981C-2CC0C3FEC6F5}.Release|x64.ActiveCfg = Release|x64
+		{A7BD80A2-0743-4FD5-981C-2CC0C3FEC6F5}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {55213750-B925-43FB-A59D-BF573D0AAF2E}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/qt/qml/memoquizz">
+        <file>main.qml</file>
+    </qresource>
+</RCC>
