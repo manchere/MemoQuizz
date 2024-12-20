@@ -12,7 +12,6 @@ Page {
 	Column {
 		spacing: 10
 		anchors.centerIn: parent
-	}  
 
 	ListView {
 		id: questionList
