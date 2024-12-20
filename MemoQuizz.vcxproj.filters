@@ -21,6 +21,18 @@
       <UniqueIdentifier>{639EADAA-A684-42e4-A9AD-28FC9BCB8F7C}</UniqueIdentifier>
       <Extensions>ts</Extensions>
     </Filter>
+    <Filter Include="Source Files\Views">
+      <UniqueIdentifier>{bda86535-71c0-4fae-9518-e7dd02edfcb2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\assets">
+      <UniqueIdentifier>{f13d4501-35dd-4921-a5b4-d7b3a4b31f86}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="images">
+      <UniqueIdentifier>{c0d3c5e3-8ad0-4a05-b02e-a397ac8f6279}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="images\ui">
+      <UniqueIdentifier>{d7854e89-c380-46f7-876d-cfeff9f3de24}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -29,9 +41,6 @@
     <QtRcc Include="qml.qrc">
       <Filter>Resource Files</Filter>
     </QtRcc>
-    <None Include="main.qml">
-      <Filter>Source Files</Filter>
-    </None>
     <ClCompile Include="quizzmanager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -43,7 +52,13 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="QuizPage.qml">
+    <None Include="main.qml">
+      <Filter>Source Files\Views</Filter>
+    </None>
+    <None Include="QuizzPage.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="IntroTextFade.qml">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>
@@ -59,5 +74,10 @@
     <QtMoc Include="quizzmanager.h">
       <Filter>Header Files</Filter>
     </QtMoc>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="CMakeLists.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
 </Project>

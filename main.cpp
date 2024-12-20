@@ -1,5 +1,7 @@
 #include <QGuiApplication>
 #include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include "quizzmanager.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,6 +12,9 @@ int main(int argc, char *argv[])
     QGuiApplication app(argc, argv);
 
     QQmlApplicationEngine engine;
+
+	QuizzManager quizzManager;
+	engine.rootContext()->setContextProperty("quizzManager", &quizzManager);
     engine.load(QUrl(QStringLiteral("qrc:/qt/qml/memoquizz/main.qml")));
     if (engine.rootObjects().isEmpty())
         return -1;
