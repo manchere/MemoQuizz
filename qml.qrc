@@ -1,6 +1,8 @@
 <RCC>
     <qresource prefix="/qt/qml/memoquizz">
         <file>main.qml</file>
-        <file>IntroTextFade.qml</file>
+        <file>IntroTextTypeWriter.qml</file>
+        <file>QuizzPage.qml</file>
+        <file>images/ui/heart.png</file>
     </qresource>
 </RCC>

@@ -58,7 +58,11 @@
     <None Include="QuizzPage.qml">
       <Filter>Source Files</Filter>
     </None>
-    <None Include="IntroTextFade.qml">
+    <None Include="IntroTextTypeWriter.qml">
+      <Filter>Source Files</Filter>
+    </None>
+    <None Include="questions.json" />
+    <None Include="QuizzBtn.qml">
       <Filter>Source Files</Filter>
     </None>
   </ItemGroup>

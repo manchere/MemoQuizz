@@ -102,7 +102,9 @@
       <DynamicSource Condition="'$(Configuration)|$(Platform)'=='Release|x64'">input</DynamicSource>
       <QtMocFileName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(Filename).moc</QtMocFileName>
     </ClCompile>
-    <None Include="IntroTextFade.qml" />
+    <None Include="IntroTextTypeWriter.qml" />
+    <None Include="questions.json" />
+    <None Include="QuizzBtn.qml" />
     <None Include="QuizzPage.qml" />
     <QtRcc Include="qml.qrc" />
     <None Include="main.qml" />
