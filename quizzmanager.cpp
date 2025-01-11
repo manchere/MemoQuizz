@@ -1,7 +1,9 @@
 #include "quizzmanager.h"
 #include "helper.h"
+#include "question.h"
 
-QuizzManager::QuizzManager(QObject* parent) : QObject(parent), m_currentScore(0), m_currentQuestionIndex(-1) {}
+
+QuizzManager::QuizzManager(QObject* parent) : QObject(parent) {}
 
 bool QuizzManager::loadQuestionsFromJson(const QString& filePath) {
 	QFile file(filePath);
@@ -22,18 +24,25 @@ bool QuizzManager::loadQuestionsFromJson(const QString& filePath) {
 
 	for (const QJsonValue& value : jsonArray) {
 		QJsonObject obj = value.toObject();
-		QString text = obj.value("text").toString();
+		int id = obj.value("id").toInt();
+		QString text = obj.value("question").toString();
 		QVector<QString> options;
 
 		for (const QJsonValue& option : obj.value("options").toArray()) {
 			options.push_back(option.toString());
 		}
+
+		QString image_path = obj.value("image_path").toString();
+
 		QVariant answer = obj.value("answer").isArray()
 			? QVariant(obj.value("answer").toArray().toVariantList())
 			: QVariant(obj.value("answer").toString());
 
 		QString typeStr = obj.value("type").toString();
 		Question::Type type = Question::MCQ;
+
+		QString hint = obj.value("hint").toString();
+
 
 		if (typeStr == "MCQ") {
 			type = Question::MCQ;
@@ -42,8 +51,9 @@ bool QuizzManager::loadQuestionsFromJson(const QString& filePath) {
 			type = Question::FillIn;
 		}
 
-		m_questions.push_back(Question(text, options, answer, type));
-
+		Question question = Question();
+		question.setQuestion(id, text, options, image_path, answer, type, hint);
+		m_questions.push_back(question);
 	}
 	return true;
 }
@@ -51,6 +61,9 @@ bool QuizzManager::loadQuestionsFromJson(const QString& filePath) {
 void QuizzManager::startQuizz() {
 	m_currentScore = 0;
 	m_currentQuestionIndex = 0;
+		if (!m_questions.empty()) {
+		m_currentQuestion = m_questions[m_currentQuestionIndex];
+	}
 	emit scoreChanged();
 	emit currentQuestionIndexChanged();
 }
@@ -75,6 +88,13 @@ void QuizzManager::nextQuestion() {
 		emit isFinishedChanged();
 	}
 } 
+
+Question QuizzManager::currentQuestion() {
+	if (m_currentQuestionIndex >= 0 && m_currentQuestionIndex < m_questions.size()) {
+		return m_questions[m_currentQuestionIndex];
+	}
+	return Question();
+}
 
 int QuizzManager::currentScore() const {
 	return m_currentScore;

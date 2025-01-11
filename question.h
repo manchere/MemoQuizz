@@ -11,20 +11,29 @@ public:
 	enum Type {
 		MCQ,
 		FillIn,
-		ImageArr
+		ImageArr, 
+		Undefined
 	};
 
-	Question(const QString text, const QVector<QString> options, const QVariant answer, Type type);
+	Question();
 
+	int id() const;
 	QString text() const;
+	QString image_path() const;
 	QVector<QString> options() const;
 	QVariant answer() const;
 	Type type() const;
+	QString hint() const;
+	
+	void setQuestion(int id, QString text, QVector<QString> options, QString image_path, QVariant answer, Type type, QString hint);
 
 private:
+	int m_id;
 	QString m_text;
+	QString m_image_path;
 	QVector<QString> m_options;
 	QVariant m_answer;
 	Type m_type;
+	QString m_hint;
 };
 #endif // !QUESTION_H
