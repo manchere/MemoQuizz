@@ -7,7 +7,7 @@ Item {
         property color textColor: "black"
         property int delay: 500
         property int duration: 150
-        property string displayText: ""
+        property string displayText: quizzManager.introText()
         property int interval: 1
         property int startDelay: 1000
 

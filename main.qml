@@ -18,7 +18,7 @@ ApplicationWindow {
             anchors.verticalCenter: parent.verticalCenter
 
             Text {
-                text: "Choupi's Memories"
+                text: "Memories"
                 font.pixelSize: 24
                 color: "black"
                 anchors.horizontalCenter: parent.horizontalCenter
@@ -41,23 +41,7 @@ ApplicationWindow {
 
                     IntroTextTypeWriter {
                         id: introText0
-                        text: "Choupi! Over the time we've spent together, we've created some of the most
-beautiful memories of my life. From little moments to unforgettable adventures,
-every moment with you is magic, but today, I have a surprise for you! 
-I've created something special, a quizz app, just for us 💕
-This quiz is a playful walk down memory lane, 
-filled with moments in our journey together. All the questions are related 
-to our memories, they are MCQ, sometime with an image to help you remember 
-the moment or answer the question. 
-
-Every question is 1 point, you need 7 points for each digit of the code making a 
-total of 21 points for the full code.
-that will give you access to the padlock of your Christmas gift.
-You are allowed a clue per question if you are stuck, but be careful
-if you use the clue you will be given half a point for the question.
-
-I hope you enjoy it as much as I enjoyed creating it for you.
-I know you will ace it, gros bisou!"
+                        text: ""
                         textColor: "darkblue"
                         delay: 1000
                         duration: 1500 

@@ -2,27 +2,27 @@
 #include "helper.h"
 #include "question.h"
 
+QuizzManager::QuizzManager(const QString &jsonFile, QObject* parent) 
+	: QObject(parent) {
+	loadIntroText(jsonFile);
+	loadQuestionsFromJson(jsonFile);
+}
 
-QuizzManager::QuizzManager(QObject* parent) : QObject(parent) {}
 
-bool QuizzManager::loadQuestionsFromJson(const QString& filePath) {
+bool QuizzManager::loadQuestionsFromJson(const QString &filePath) {
 	QFile file(filePath);
 	if (!file.open(QIODevice::ReadOnly)) {
 		qWarning() << "Couldn't open file";
 		return false;
 	}
 
-	QByteArray jsonData = file.readAll();
-	QJsonDocument doc = QJsonDocument::fromJson(jsonData);
-	if (!doc.isArray()) {
-		qWarning() << "Couldn't parse JSON";
-		return false;
-	}
+	//QByteArray jsonData = file.readAll();
+	QJsonObject root = QJsonDocument::fromJson(file.readAll()).object();
 
-	QJsonArray jsonArray = doc.array();
 	m_questions.clear();
 
-	for (const QJsonValue& value : jsonArray) {
+	QJsonArray questions = root["questions"].toArray();
+	for (const QJsonValue& value : questions) {
 		QJsonObject obj = value.toObject();
 		int id = obj.value("id").toInt();
 		QString text = obj.value("question").toString();
@@ -51,10 +51,23 @@ bool QuizzManager::loadQuestionsFromJson(const QString& filePath) {
 			type = Question::FillIn;
 		}
 
-		Question question = Question();
+		Question question;
 		question.setQuestion(id, text, options, image_path, answer, type, hint);
 		m_questions.push_back(question);
 	}
+	return true;
+}
+
+bool QuizzManager::loadIntroText(const QString& filePath) {
+	QFile file(filePath);
+	if (!file.open(QIODevice::ReadOnly)) {
+		qWarning() << "Couldn't open file";
+		return false;
+	}
+
+	QJsonObject root = QJsonDocument::fromJson(file.readAll()).object();
+	QJsonObject misc = root["misc"].toObject();
+	m_introText = misc.value("intro").toString();
 	return true;
 }
 
@@ -117,4 +130,12 @@ bool QuizzManager::isHintGiven(int hintNum) const {
 
 bool QuizzManager::isFullHintGiven() const {
 	return std::all_of(std::begin(m_hintGiven), std::end(m_hintGiven), [](bool hint) { return hint; });
+}
+
+QString QuizzManager::introText() const {
+	return m_introText;
+}
+
+QJsonDocument QuizzManager::jsonDoc() {
+	return m_jsonDoc;
 }

@@ -16,9 +16,7 @@ int main(int argc, char *argv[])
 
     QQmlApplicationEngine engine;
 
-	QuizzManager quizzManager;
-    bool load = quizzManager.loadQuestionsFromJson("questions.json");
-    std::cout << load << endl;
+	QuizzManager quizzManager("questions.json");
 
 	engine.rootContext()->setContextProperty("quizzManager", &quizzManager);
 
