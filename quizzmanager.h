@@ -20,7 +20,7 @@ class QuizzManager : public QObject
 		Q_PROPERTY(bool isQuizzFinished READ isQuizzFinished NOTIFY isFinishedChanged)
 
 public:
-	explicit QuizzManager(const QString & jsonFile, QObject* parent = nullptr);
+	explicit QuizzManager( const QString &jsonFile, QObject* parent = nullptr);
 	Q_INVOKABLE void startQuizz();
 	Q_INVOKABLE void answerQuestion(bool answer);
 	Q_INVOKABLE Question currentQuestion();	

@@ -1,29 +1,42 @@
 #include "quizzmanager.h"
 #include "helper.h"
 #include "question.h"
+#include <QDebug>
+#include <QDir>
+#include <QCoreApplication>
 
-QuizzManager::QuizzManager(const QString &jsonFile, QObject* parent) 
+QuizzManager::QuizzManager( const QString &jsonFile, QObject* parent) 
 	: QObject(parent) {
 	loadIntroText(jsonFile);
 	loadQuestionsFromJson(jsonFile);
 }
 
 
-bool QuizzManager::loadQuestionsFromJson(const QString &filePath) {
-	QFile file(filePath);
-	if (!file.open(QIODevice::ReadOnly)) {
+bool QuizzManager::loadQuestionsFromJson(const QString &fPath) {
+	QString appDir = QCoreApplication::applicationDirPath();
+	QString fullPath = QDir(appDir).filePath(fPath);
+
+	QFile file(fullPath);
+
+	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
 		qWarning() << "Couldn't open file";
 		return false;
 	}
 
-	//QByteArray jsonData = file.readAll();
-	QJsonObject root = QJsonDocument::fromJson(file.readAll()).object();
+	QString jsonFile = file.readAll();
+	file.close();
+
+	QJsonDocument doc = QJsonDocument::fromJson(jsonFile.toUtf8());
+	QJsonObject root = doc.object();
 
 	m_questions.clear();
 
-	QJsonArray questions = root["questions"].toArray();
+	QJsonArray questions = root.value("questions").toArray();
+	QJsonObject obj;
+	
+
 	for (const QJsonValue& value : questions) {
-		QJsonObject obj = value.toObject();
+		obj = value.toObject();
 		int id = obj.value("id").toInt();
 		QString text = obj.value("question").toString();
 		QVector<QString> options;
@@ -65,8 +78,10 @@ bool QuizzManager::loadIntroText(const QString& filePath) {
 		return false;
 	}
 
-	QJsonObject root = QJsonDocument::fromJson(file.readAll()).object();
-	QJsonObject misc = root["misc"].toObject();
+	QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
+	QJsonObject root = doc.object();
+
+	QJsonObject misc = root.value("misc").toObject();
 	m_introText = misc.value("intro").toString();
 	return true;
 }
