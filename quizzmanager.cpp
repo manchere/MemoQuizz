@@ -12,11 +12,15 @@ QuizzManager::QuizzManager( const QString &jsonFile, QObject* parent)
 }
 
 
-bool QuizzManager::loadQuestionsFromJson(const QString &fPath) {
-	QString appDir = QCoreApplication::applicationDirPath();
-	QString fullPath = QDir(appDir).filePath(fPath);
+bool QuizzManager::loadQuestionsFromJson(const QString &fname) {
+	QString filePath = QCoreApplication::applicationDirPath();
+	Helper trim = Helper();
+	filePath = trim.trimFromWord(filePath.toStdString(), "Debug") + "/questions.json";
+		
+	QFileInfo fileInfo(filePath);
+	
 
-	QFile file(fullPath);
+	QFile file(fileInfo.absolutePath());
 
 	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
 		qWarning() << "Couldn't open file";

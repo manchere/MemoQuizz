@@ -8,7 +8,6 @@
 #include <QFile>
 #include <QJsonArray>
 #include <QJsonObject>
-
 #include "question.h"
 
 class QuizzManager : public QObject
