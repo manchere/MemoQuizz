@@ -5,23 +5,15 @@
 #include <QDir>
 #include <QCoreApplication>
 
-QuizzManager::QuizzManager( const QString &jsonFile, QObject* parent) 
+QuizzManager::QuizzManager(const QString& jsonFile, QObject* parent)
 	: QObject(parent) {
-	loadIntroText(jsonFile);
-	loadQuestionsFromJson(jsonFile);
+	loadMetaData(jsonFile);
+	loadData(jsonFile);
 }
 
 
-bool QuizzManager::loadQuestionsFromJson(const QString &fname) {
-	QString filePath = QCoreApplication::applicationDirPath();
-	Helper trim = Helper();
-	filePath = trim.trimFromWord(filePath.toStdString(), "Debug") + "/questions.json";
-		
-	QFileInfo fileInfo(filePath);
-	
-
-	QFile file(fileInfo.absolutePath());
-
+bool QuizzManager::loadData(const QString& filePath) {
+	QFile file(filePath);
 	if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
 		qWarning() << "Couldn't open file";
 		return false;
@@ -31,23 +23,23 @@ bool QuizzManager::loadQuestionsFromJson(const QString &fname) {
 	file.close();
 
 	QJsonDocument doc = QJsonDocument::fromJson(jsonFile.toUtf8());
-	QJsonObject root = doc.object();
 
 	m_questions.clear();
 
+	QJsonObject root = doc.object();
 	QJsonArray questions = root.value("questions").toArray();
-	QJsonObject obj;
-	
 
 	for (const QJsonValue& value : questions) {
-		obj = value.toObject();
+		QJsonObject obj = value.toObject();
 		int id = obj.value("id").toInt();
 		QString text = obj.value("question").toString();
 		QVector<QString> options;
 
 		for (const QJsonValue& option : obj.value("options").toArray()) {
-			options.push_back(option.toString());
+			options.append(option.toString());
 		}
+
+		qDebug() << obj.value("options").toArray();
 
 		QString image_path = obj.value("image_path").toString();
 
@@ -69,20 +61,23 @@ bool QuizzManager::loadQuestionsFromJson(const QString &fname) {
 		}
 
 		Question question;
-		question.setQuestion(id, text, options, image_path, answer, type, hint);
-		m_questions.push_back(question);
+		question.setQuestion(id, text, options, answer);
+		m_questions.append(question);
 	}
 	return true;
 }
 
-bool QuizzManager::loadIntroText(const QString& filePath) {
+bool QuizzManager::loadMetaData(const QString& filePath) {
 	QFile file(filePath);
 	if (!file.open(QIODevice::ReadOnly)) {
 		qWarning() << "Couldn't open file";
 		return false;
 	}
 
-	QJsonDocument doc = QJsonDocument::fromJson(file.readAll());
+	QString jsonFile = file.readAll();
+	file.close();
+
+	QJsonDocument doc = QJsonDocument::fromJson(jsonFile.toUtf8());
 	QJsonObject root = doc.object();
 
 	QJsonObject misc = root.value("misc").toObject();
@@ -90,17 +85,17 @@ bool QuizzManager::loadIntroText(const QString& filePath) {
 	return true;
 }
 
-void QuizzManager::startQuizz() {
+void QuizzManager::start() {
 	m_currentScore = 0;
 	m_currentQuestionIndex = 0;
-		if (!m_questions.empty()) {
+	if (!m_questions.empty()) {
 		m_currentQuestion = m_questions[m_currentQuestionIndex];
 	}
 	emit scoreChanged();
-	emit currentQuestionIndexChanged();
+	emit currentStepChanged();
 }
 
-void QuizzManager::answerQuestion(bool answer) {
+void QuizzManager::processInput(const QVariant) {
 	if (m_currentQuestionIndex < 0 || m_currentQuestionIndex >= m_questions.size()) {
 		return;
 	}
@@ -111,32 +106,32 @@ void QuizzManager::answerQuestion(bool answer) {
 	}*/
 }
 
-void QuizzManager::nextQuestion() {
+void QuizzManager::nextStep() {
 	if (m_currentQuestionIndex < m_questions.size() - 1) {
 		m_currentQuestionIndex++;
-		emit currentQuestionIndexChanged();
+		emit currentStepChanged();
 	}
 	else {
 		emit isFinishedChanged();
 	}
-} 
+}
 
-Question QuizzManager::currentQuestion() {
+Question QuizzManager::getCurrentstate() const {
 	if (m_currentQuestionIndex >= 0 && m_currentQuestionIndex < m_questions.size()) {
 		return m_questions[m_currentQuestionIndex];
 	}
 	return Question();
 }
 
-int QuizzManager::currentScore() const {
+int QuizzManager::getProgress() const {
 	return m_currentScore;
 }
 
-int QuizzManager::currentQuestionIndex() const {
+int QuizzManager::currentStep() {
 	return m_currentQuestionIndex;
 }
 
-bool QuizzManager::isQuizzFinished() const {
+bool QuizzManager::isFinished() const {
 	return isHintGiven(0) && isHintGiven(1) && isHintGiven(2);
 }
 
@@ -144,7 +139,7 @@ bool QuizzManager::isHintGiven(int hintNum) const {
 	if (m_hintGiven[hintNum]) {
 		return true;
 	}
-	return false;	
+	return false;
 }
 
 bool QuizzManager::isFullHintGiven() const {

@@ -46,3 +46,12 @@ void Question::setQuestion(int id, QString text, QVector<QString> options, QStri
 	m_hint = hint;
 	m_image_path = image_path;
 }
+
+void Question::setQuestion(int id, QString text, QVector<QString> options, QVariant answer) {
+	m_id = id;
+	m_text = text;
+	m_options = options;
+	m_answer = answer;
+}
+
+
