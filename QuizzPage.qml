@@ -23,7 +23,7 @@ Page {
                     Layout.fillWidth: true
                     spacing: 100
 			        Text {
-				        text: "Question 1/10"
+				        text: quizzManager.getCurrentState().id()
 				        font.pixelSize: 18
 				        color: "#343a40"
 			        }

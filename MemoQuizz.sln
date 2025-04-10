@@ -5,6 +5,8 @@ VisualStudioVersion = 17.11.35312.102
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MemoQuizz", "MemoQuizz.vcxproj", "{A7BD80A2-0743-4FD5-981C-2CC0C3FEC6F5}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MemoTest", "..\MemoTest\MemoTest.vcxproj", "{448429FE-179F-4547-BC7A-76F29078A074}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -15,6 +17,10 @@ Global
 		{A7BD80A2-0743-4FD5-981C-2CC0C3FEC6F5}.Debug|x64.Build.0 = Debug|x64
 		{A7BD80A2-0743-4FD5-981C-2CC0C3FEC6F5}.Release|x64.ActiveCfg = Release|x64
 		{A7BD80A2-0743-4FD5-981C-2CC0C3FEC6F5}.Release|x64.Build.0 = Release|x64
+		{448429FE-179F-4547-BC7A-76F29078A074}.Debug|x64.ActiveCfg = Debug|x64
+		{448429FE-179F-4547-BC7A-76F29078A074}.Debug|x64.Build.0 = Debug|x64
+		{448429FE-179F-4547-BC7A-76F29078A074}.Release|x64.ActiveCfg = Release|x64
+		{448429FE-179F-4547-BC7A-76F29078A074}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

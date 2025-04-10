@@ -6,12 +6,12 @@
 #include <QVector>
 #include <QVariant>
 
-class Question { 
+class Question {
 public:
 	enum Type {
 		MCQ,
 		FillIn,
-		ImageArr, 
+		ImageArr,
 		Undefined
 	};
 
@@ -24,8 +24,9 @@ public:
 	QVariant answer() const;
 	Type type() const;
 	QString hint() const;
-	
+
 	void setQuestion(int id, QString text, QVector<QString> options, QString image_path, QVariant answer, Type type, QString hint);
+	void setQuestion(int id, QString text, QVector<QString> options, QVariant answer);
 
 private:
 	int m_id;

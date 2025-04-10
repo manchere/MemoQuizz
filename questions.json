@@ -1,13 +1,12 @@
 {
-  "misc":
-  {
+  "misc": {
     "intro": "Choupi! Over the time we've spent together, we've created some of the most beautiful memories of my life. From little moments to unforgettable adventures, every moment with you is magic, but today, I have a surprise for you! I've created something special, a quizz app, just for us 💕.\n\nThis quiz is a playful walk down memory lane, filled with moments in our journey together. All the questions are related to our memories. They are multiple-choice, sometimes with an image to help you remember the moment or answer the question.\n\nEvery question is worth 1 point. You need 7 points for each digit of the code, making a total of 21 points for the full code that will unlock the padlock on your Christmas gift.\n\nYou are allowed a clue per question if you are stuck, but be careful—if you use the clue, you will earn only half a point for the question.\n\nI hope you enjoy it as much as I enjoyed creating it for you. I know you will ace it. Gros bisou!"
   },
-  "questions": {
+  "questions": [
     {
       "id": 1,
       "question": "Quel est le nom de la boutique o� tu as port� cette robe ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Chimi", "APC", "Ganni", "Loulou studio" ],
       "image": null,
       "answer": "Ganni",
@@ -16,7 +15,7 @@
     {
       "id": 2,
       "question": "Quel est le nom du restaurant o� nous avons pris cette photo ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Ga�t� Lyrique", "Motion", "Immersion", "Bon Gourmet" ],
       "image": null,
       "answer": "Immersion",
@@ -25,7 +24,7 @@
     {
       "id": 3,
       "question": "� quelle date avons-nous eu notre premier baiser ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "6 octobre 2023", "7 octobre 2023", "8 octobre 2023" ],
       "image": null,
       "answer": "7 octobre 2023",
@@ -34,7 +33,7 @@
     {
       "id": 4,
       "question": "Quel plat mangeais-tu le jour de notre premier baiser ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Taco", "Grec", "Chinois", "Sushi" ],
       "image": null,
       "answer": "Grec",
@@ -43,7 +42,7 @@
     {
       "id": 5,
       "question": "Quel est le nom du restaurant o� nous sommes all�s pour la Saint-Valentin derni�re ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Miss Ko", "Zen", "Mitsu Inn", "AO Izakaya" ],
       "image": null,
       "answer": "Miss Ko",
@@ -52,7 +51,7 @@
     {
       "id": 6,
       "question": "Quelle robe portais-tu pour la Saint-Valentin ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [
         "Une robe noire",
         "Une robe bleue et cr�me",
@@ -66,7 +65,7 @@
     {
       "id": 7,
       "question": "Quel est le nom de l�homme du couple nig�rian que nous avons rencontr� lors de notre voyage � Blue Eye ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Ogbun", "Abebi", "Ola", "Sade" ],
       "image": null,
       "answer": "Ogbun",
@@ -75,7 +74,7 @@
     {
       "id": 8,
       "question": "Qui est ce gars ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [
         "Un stupide chauffeur de taxi",
         "Un ancien dealer de drogue reconverti en chauffeur de taxi",
@@ -89,7 +88,7 @@
     {
       "id": 9,
       "question": "Combien de fois avons-nous mang� chez �As du Falafel� ensemble ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "2", "3", "4", "5" ],
       "image": null,
       "answer": "3",
@@ -98,7 +97,7 @@
     {
       "id": 10,
       "question": "Dans quel Airbnb avons-nous pris cette photo ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "East Hendon", "West Hendon", "All Hendon", "Hendon Way" ],
       "image": null,
       "answer": "West Hendon",
@@ -107,7 +106,7 @@
     {
       "id": 11,
       "question": "Combien de fois avons-nous mang� du monkey bread ensemble ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "2", "3", "4", "5" ],
       "image": null,
       "answer": "3",
@@ -116,7 +115,7 @@
     {
       "id": 12,
       "question": "Quel a �t� le premier plat que tu as cuisin� pour nous ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [
         "Haricots & plantains",
         "P�tes au pesto et torchon de jambon",
@@ -130,7 +129,7 @@
     {
       "id": 13,
       "question": "Quel a �t� le premier petit-d�jeuner que tu as pr�par� pour nous ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [
         "Pain perdu, confiture de myrtilles & burrata",
         "Pain perdu & Nutella",
@@ -144,7 +143,7 @@
     {
       "id": 14,
       "question": "Quel est le nom du film que nous avons regard� le premier jour o� je suis venu(e) te voir ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Sex and the City", "Fair Play", "Insatiable", "Love" ],
       "image": null,
       "answer": "Fair Play",
@@ -153,7 +152,7 @@
     {
       "id": 15,
       "question": "Dans quelle attraction � Disneyland avons-nous travers� presque toute la file avant qu�un homme essaie de nous arr�ter ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [
         "Peter Pan�s Flight",
         "Big Thunder Mountain",
@@ -167,7 +166,7 @@
     {
       "id": 16,
       "question": "Quelle s�rie avons-nous regard�e en boucle dans un train ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Walking Dead", "Lupin", "Black Mirror", "Bridgerton" ],
       "image": null,
       "answer": "Lupin",
@@ -176,7 +175,7 @@
     {
       "id": 17,
       "question": "Dans quelle ville allemande avons-nous d� nous arr�ter et demander une chambre d'h�tel avant de continuer notre voyage le lendemain ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Hamburg", "Cologne", "D�sseldorf", "Dortmund" ],
       "image": null,
       "answer": "Cologne",
@@ -185,7 +184,7 @@
     {
       "id": 18,
       "question": "Quelle sp�cialit� d�Aix-la-Chapelle avons-nous essay�e et peu appr�ci�e ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Printogen", "Bretzel", "Printen", "Praitag" ],
       "image": null,
       "answer": "Printen",
@@ -194,7 +193,7 @@
     {
       "id": 19,
       "question": "Quel est le nom de la femme qui nous a emmen�s � Aix-la-Chapelle ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Marie", "Georgina", "Petra", "P�tunia" ],
       "image": null,
       "answer": "Petra",
@@ -203,7 +202,7 @@
     {
       "id": 20,
       "question": "Quel surnom ai-je commenc� � t'appeler en premier ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Chouquette", "Mon Chou", "Choupi", "Choupinette" ],
       "image": null,
       "answer": "Mon Chou",
@@ -212,7 +211,7 @@
     {
       "id": 21,
       "question": "Pendant quel film que nous avons vu au cin�ma as-tu tenu ma main pendant toute la s�ance et tu t�es endormi(e) sur mon �paule ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Le Consentement", "Dune", "Moi, Capitaine", "Moi, Moche et M�chant" ],
       "image": null,
       "answer": "Le Consentement",
@@ -221,7 +220,7 @@
     {
       "id": 22,
       "question": "Quel est le nom du premier mus�e que nous avons visit� ensemble ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [
         "Mus�e d�Orsay",
         "Mus�e de l�Air et de l�Espace",
@@ -235,7 +234,7 @@
     {
       "id": 23,
       "question": "Lequel de ces fast-foods penses-tu que j�aime le moins ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Burger King", "KFC", "Five Guys", "Gomu Burger" ],
       "image": null,
       "answer": "KFC",
@@ -244,7 +243,7 @@
     {
       "id": 24,
       "question": "Combien de pourboire ai-je donn� au Paradis du Fruit ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "15 euros", "20 euros", "10 euros", "25 euros" ],
       "image": null,
       "answer": "20 euros",
@@ -253,7 +252,7 @@
     {
       "id": 25,
       "question": "O� as-tu achet� ce maillot de bain ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Leamington", "Cambridge", "Paris", "Londres" ],
       "image": null,
       "answer": "Paris",
@@ -262,7 +261,7 @@
     {
       "id": 26,
       "question": "Laquelle de ces qualit�s penses-tu que j�admire le plus chez toi ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [
         "Ton intelligence",
         "Ta capacit� de d�duction",
@@ -276,7 +275,7 @@
     {
       "id": 27,
       "question": "Combien de fois avons-nous fait du scooter en amoureux ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "1", "2", "3", "4" ],
       "image": null,
       "answer": "2",
@@ -285,11 +284,11 @@
     {
       "id": 28,
       "question": "Le premier jour o� nous nous sommes rencontr�s aux Buttes-Chaumont, lequel de ces sujets n'avons-nous pas �voqu� ?",
-      "type": "choix-multiple",
+      "type": "MCQ",
       "options": [ "Un livre que je lisais", "Des lecons de natation", "Ton abonnement de salle de sport", "Ton renouvellement de titre" ],
       "image": null,
       "answer": "Ton renouvellement de titre",
       "hint": "la prefecture"
     }
-  }
+  ]
 }
